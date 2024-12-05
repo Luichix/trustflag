@@ -1,0 +1,131 @@
+/* General Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(45deg, #6328c2, #9333ea);
+  color: white;
+  padding: 15px 20px;
+  position: relative;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #fefdff; /* Soft Lavender */
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navbar-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-menu a:hover {
+  background: linear-gradient(
+    45deg,
+    #6d28d9,
+    #6518e0
+  ); /* Purple to Blue Gradient */
+  /* transform: scale(1.05); */
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 30px;
+  background-color: white;
+  border-radius: 2px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Animations for Hamburger */
+.hamburger:hover span {
+  background-color: #ffffff; /* Light Blue */
+}
+
+.hamburger span:nth-child(1) {
+  transform-origin: top left;
+}
+.hamburger span:nth-child(3) {
+  transform-origin: bottom left;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .navbar-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 60px);
+    flex-direction: column;
+    background: linear-gradient(
+      45deg,
+      #6328c2,
+      #9333ea
+    ); /* Blue to Deep Purple Gradient */
+    padding: 30px 20px;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(50px);
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  .navbar-menu.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  .navbar-menu a {
+    font-size: 1.5em;
+    padding: 15px 20px;
+    color: #e0f2fe; /* Soft Blue Text */
+  }
+
+  .navbar-menu a:hover {
+    background: linear-gradient(
+      45deg,
+      #3b82f6,
+      #9333ea
+    ); /* Blue to Deep Purple Gradient */
+  }
+
+  .hamburger {
+    display: flex;
+    z-index: 1000;
+  }
+}

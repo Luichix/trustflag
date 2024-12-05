@@ -1,0 +1,14 @@
+<nav class="navbar">
+  <div class="navbar-brand">Trust Flag</div>
+  <div class="navbar-menu" [ngClass]="{ active: isMenuOpen }">
+    <a routerLink="/inicio" (click)="closeMenu()">Inicio</a>
+    <a routerLink="/como-funciona" (click)="closeMenu()">Cómo Funciona</a>
+    <a routerLink="/directorio" (click)="closeMenu()">Directorio de Empresas</a>
+    <a routerLink="/reportar" (click)="closeMenu()">Reportar Fraude</a>
+  </div>
+  <div class="hamburger" (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
